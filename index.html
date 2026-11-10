@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0118" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23070110'/%3E%3Ccircle cx='32' cy='28' r='14' fill='%23ff2d95'/%3E%3Ccircle cx='32' cy='28' r='20' fill='none' stroke='%23ff2d95' stroke-opacity='0.35' stroke-width='3'/%3E%3Cpath d='M4 46h56' stroke='%2322e6ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <title>SYNTH RACER</title>
+    <meta
+      name="description"
+      content="브라우저에서 도는 신스웨이브 아케이드 레이서. 절차 생성 트랙과 코드 합성 사운드만으로 만들어졌습니다."
+    />
+  </head>
+  <body>
+    <canvas id="scene" aria-label="게임 화면"></canvas>
+
+    <div id="hud" class="hidden" aria-hidden="true">
+      <div class="hud-top">
+        <div class="hud-block">
+          <span class="hud-label">DISTANCE</span>
+          <span id="hud-distance" class="hud-value">0<span class="unit">m</span></span>
+        </div>
+        <div class="hud-block right">
+          <span class="hud-label">TIME</span>
+          <span id="hud-time" class="hud-value">0.0<span class="unit">s</span></span>
+        </div>
+      </div>
+
+      <div class="hud-bottom">
+        <div class="speed-block">
+          <span id="hud-speed" class="speed-value">0</span>
+          <span class="speed-unit">KM/H</span>
+        </div>
+        <div class="hud-right">
+          <div class="hud-block right">
+            <span class="hud-label">BEST</span>
+            <span id="hud-best" class="hud-value small">0<span class="unit">m</span></span>
+          </div>
+          <div id="hud-offroad" class="warning">IMPACT</div>
+        </div>
+      </div>
+
+      <div id="hud-combo" class="combo"></div>
+    </div>
+
+    <div id="title" class="screen">
+      <div class="title-glow"></div>
+      <h1 class="logo">SYNTH<span>RACER</span></h1>
+      <p class="tagline">절차 생성 트랙 · 코드 합성 사운드 · 외부 에셋 0</p>
+      <button id="start-button" class="cta" type="button">PRESS ENTER</button>
+      <div class="controls">
+        <span><kbd>←</kbd><kbd>→</kbd> 조향</span>
+        <span><kbd>↑</kbd> 가속</span>
+        <span><kbd>↓</kbd> 브레이크</span>
+        <span><kbd>Space</kbd> 부스트</span>
+        <span><kbd>M</kbd> 음소거</span>
+      </div>
+      <div class="title-foot">모바일에서는 화면 아래 버튼으로 조작합니다</div>
+    </div>
+
+    <div id="pause" class="screen hidden">
+      <h2 class="pause-title">PAUSED</h2>
+      <button id="resume-button" class="cta" type="button">PRESS ENTER</button>
+      <div class="controls">
+        <span><kbd>R</kbd> 다시 시작</span>
+        <span><kbd>M</kbd> 음소거</span>
+      </div>
+    </div>
+
+    <div id="touch" class="touch hidden">
+      <button class="touch-btn left" data-key="left" type="button" aria-label="왼쪽">◀</button>
+      <button class="touch-btn right" data-key="right" type="button" aria-label="오른쪽">▶</button>
+      <button class="touch-btn boost" data-key="boost" type="button" aria-label="부스트">BOOST</button>
+    </div>
+
+    <div id="mute-indicator" class="mute-indicator hidden">MUTED</div>
+
+    <noscript>
+      <div class="screen"><p>이 데모는 JavaScript가 필요합니다.</p></div>
+    </noscript>
+
+    <script type="module" src="./assets/app.js"></script>
+    <link rel="stylesheet" href="./assets/app.css" />
+  </body>
+</html>
