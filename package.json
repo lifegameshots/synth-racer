@@ -1,0 +1,22 @@
+{
+  "name": "synth-racer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Synthwave arcade racer — procedural track, code-synthesized audio, no external assets.",
+  "scripts": {
+    "dev": "vite",
+    "build": "node build.mjs",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.187.0",
+    "esbuild": "^0.27.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.8"
+  }
+}
